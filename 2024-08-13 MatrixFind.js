@@ -10,7 +10,7 @@ function findMatrixAnomaly(matrix){
             catalog[matrix[i][j]] = {i:i+1, j:j+1, count: count};
 
             // If there's more than one key, and we're 3 elements or more into it, we have our answer
-            if(Object.keys(catalog).length > 1 && (i+j+2 >= 3)){
+            if(Object.keys(catalog).length > 1 && ((matrix[i].length * i)+j+1 >= 3)){
                 for(key of Object.keys(catalog)){
                     if(catalog[key].count == 1){ // The key that only has 1 occurence is the anomaly
                         return '['+ catalog[key].i + ', ' + catalog[key].j + '] #' + key + ' is different from the rest';
